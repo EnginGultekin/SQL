@@ -16,6 +16,7 @@
 
  - **SQL Practice 01 | WHERE and Comparison & Logical**
  - **SQL Practice 02 | BETWEEN and IN**
+ - **SQL Practice 03 | LIKE and ILIKE**
 
 <br>
 
@@ -107,7 +108,7 @@ NOT (rental_rate = 2.99 OR rental_rate = 4.99);
 <br>
 <br>
 
-## SQL Ödev 02 | BETWEEN and IN
+## SQL Practice 02 | BETWEEN and IN
 
 
 <br>    
@@ -148,6 +149,93 @@ WHERE rental_rate IN (0.99, 2.99)
 AND replacement_cost IN (12.99,15.99, 28.99)
 
 ```
+
+<br>
+
+- **To Return - <a href="https://github.com/EnginGultekin/SQL">Click</a>**
+
+<br>
+<br>
+
+
+## SQL Practice 03  | LIKE and ILIKE
+
+<br>
+
+```
+
+~~    LIKE        "Implements what is written"
+~~*   ILIKE       "Applies what is written regardless of lower or upper case"
+!~~   NOT LIKE
+!~~*  NOT ILIKE
+
+```
+<br>
+<br>
+
+
+1-) List the country names in the <strong>country</strong> column of the <strong>country</strong> table, starting with the <strong>'A'</strong> character and ending with the <strong>'a'</strong> character.
+
+```
+
+SELECT country FROM country
+WHERE country ~~ 'A%a'; 
+
+SELECT country FROM country
+WHERE country LIKE 'A%a'; 
+
+```
+
+
+
+<br>
+<br>
+<br>
+
+2-) List the country names in the <strong>country</strong> column of the <strong>country</strong> table, consisting of at <strong>least 6 characters</strong> and ending with the <strong>'n'</strong> character.
+
+```
+
+SELECT country FROM country 
+WHERE country LIKE '_____%n' 
+
+```
+
+
+<br>
+<br>
+<br>
+
+3-)  In the <strong>title</strong> column of the <strong>film</strong> table, list the film names containing <strong> at least 4 'T'</strong> characters, regardless of upper or lower case letters.
+
+```
+
+SELECT title FROM film 
+WHERE title ~~* '%T%T%T%T%'; 
+
+SELECT title FROM film 
+WHERE title ILIKE '%T%T%T%T%'; 
+
+```
+
+
+<br>
+<br>
+<br>
+
+4-)  From the data in all the columns in the <strong>film</strong> table, sort the data that starts with the <strong>title</strong>  'C' character, has a length greater than 90 and a <strong>rental_rate</strong> of 2.99.
+
+
+```
+
+SELECT * FROM film 
+WHERE title LIKE 'C%' 
+AND length > 90 
+AND rental_rate = 2.99
+
+```
+
+
 
 <br>
 

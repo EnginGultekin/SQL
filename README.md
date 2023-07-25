@@ -17,6 +17,7 @@
  - **SQL Practice 01 | WHERE and Comparison & Logical**
  - **SQL Practice 02 | BETWEEN and IN**
  - **SQL Practice 03 | LIKE and ILIKE**
+ - **SQL Practice 04 | DISTINCT and COUNT**
 
 <br>
 
@@ -236,6 +237,86 @@ AND rental_rate = 2.99
 ```
 
 
+
+<br>
+
+- **To Return - <a href="https://github.com/EnginGultekin/SQL">Click</a>**
+
+<br>
+<br>
+
+
+## SQL Practice 04 | DISTINCT ve COUNT
+
+<br>
+<br>
+
+
+1-) Sort the different values in the <strong>replacement_cost</strong> column in the <strong>film</strong> table.
+
+```
+
+SELECT DISTINCT replacement_cost FROM film
+
+```
+
+<br>
+<br>
+<br>
+
+2-) How many different data are there in the <Strong>replacement_cost</strong>  column in the <strong>film</strong> table?
+
+```
+
+SELECT COUNT (DISTINCT replacement_cost) FROM film
+
+```
+
+<br>
+<br>
+<br>
+
+3-)  How many of the films <strong>(title)</strong> in the <strong>film</strong> table start with the character <strong>T</strong> and at the same time the <strong>rating</strong> is equal to <strong>'G'</strong>?
+
+```
+
+SELECT COUNT(*) FROM film 
+WHERE title LIKE 'T%' 
+AND rating = 'G'
+
+```
+
+<br>
+<br>
+<br>
+
+
+4-)  How many of the country names (country) in the <strong>country</strong> table consist of <strong>5</strong> characters?
+
+
+```
+
+SELECT COUNT(DISTINCT country) FROM country 
+where country like '_____'
+
+```
+
+<br>
+<br>
+<br>
+
+5-) How many of the city names in the <strong>city</strong> table end with the character <strong>'R'</strong> or <strong>r</strong>?
+
+```
+
+SELECT COUNT(city) FROM city 
+WHERE city ILIKE 'R%'
+
+
+SELECT COUNT(city) FROM city 
+WHERE city ~~* 'R%'
+
+```
 
 <br>
 

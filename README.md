@@ -21,6 +21,7 @@
  - **SQL Practice 05 | ORDER BY | LIMIT and OFFSET**
  - **SQL Practice 06 | Aggregate Functions**
  - **SQL Practice 07 | GROUP BY | HAVING**
+ - **SQL Practice 08 | Creating a Table | Updating Data**
 
 <br>
 
@@ -531,6 +532,186 @@ ORDER BY COUNT(*) DESC
 LIMIT 1
 
 ```
+
+<br>
+
+- **To Return - <a href="https://github.com/EnginGultekin/SQL">Click</a>**
+
+<br>
+<br>
+
+
+## SQL Practice 08 | Creating a Table | Updating Data"
+
+<br>
+<br>
+
+1-) Let's create a table in your <strong>test</strong> database with <strong>employee</strong>  name column information id(INTEGER), name VARCHAR(50), birthday DATE, email VARCHAR(100).
+
+
+```
+
+CREATE TABLE employee (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  birthday DATE,
+  email VARCHAR(100)
+)
+
+
+```
+
+<br>
+<br>
+<br>
+
+2-) Let's add 50 pieces of data to the <strong>employee</strong> table we created using the 'Mockaroo' service.
+
+```
+
+insert into employee (name, birtday, email) 
+values 
+    ('Costa Catto', null, null),
+    ('Kariotta Sainsberry', null, 'ksainsberry1@gov.uk'),
+    ('Sunny Newland', null, 'snewland2@prweb.com'),
+    ('Kelcie Harmstone', '1962-09-23', 'kharmstone3@reuters.com'),
+    ('Allister Gullis', '1953-03-21', 'agullis4@disqus.com'),
+    ('Stephine Gelletly', '2001-07-07', 'sgelletly5@japanpost.jp'),
+    ('Torrey Rickarsey', '1965-04-10', 'trickarsey6@t.co'),
+    ('Carney Havesides', '1951-11-02', 'chavesides7@theatlantic.com'),
+    ('Alejandra Morstatt', '1987-02-06', 'amorstatt8@ftc.gov'),
+    ('Tobi Freeborne', '1973-05-20', 'tfreeborne9@ask.com'),
+    ('Beverie Slowey', '1999-04-07', null),
+    ('Muhammad Donnett', '1968-11-22', 'mdonnettb@yahoo.co.jp'),
+    ('Gale Obbard', null, 'gobbardc@mail.ru'),
+    ('Alfredo Joddens', '1961-03-11', 'ajoddensd@blog.com'),
+    ('Darcy Klimkin', '1986-09-19', 'dklimkine@ihg.com'),
+    ('Fanechka Ebunoluwa', null, 'febunoluwaf@prlog.org'),
+    ('Jerrome Bealing', '1958-08-23', 'jbealingg@ustream.tv'),
+    ('Arnold Turn', null, 'aturnh@myspace.com'),
+    ('Ingram Meyer', '1968-09-03', 'imeyeri@yahoo.co.jp'),
+    ('Gisella Stickles', '1999-03-16', 'gsticklesj@free.fr'),
+    ('Nick Monk', '1978-08-24', null),
+    ('Flint Godrich', null, 'fgodrichl@flickr.com'),
+    ('Alvina Fiennes', null, 'afiennesm@fotki.com'),
+    ('Guido Erickssen', '1975-08-15', 'gerickssenn@hubpages.com'),
+    ('Dallas Cowley', '1993-03-27', 'dcowleyo@multiply.com'),
+    ('Gordon Adamsen', '1947-08-06', 'gadamsenp@reuters.com'),
+    ('Flynn Ausher', '1985-06-24', 'fausherq@imdb.com'),
+    ('Jeffrey Bougen', '1959-04-11', 'jbougenr@illinois.edu'),
+    ('Philippe Belfelt', '1960-09-10', 'pbelfelts@fc2.com'),
+    ('Olive Connor', '1978-12-25', 'oconnort@edublogs.org'),
+    ('Broderick Drain', '1970-09-12', 'bdrainu@google.cn'),
+    ('Brandais Bassill', '1986-04-18', 'bbassillv@bigcartel.com'),
+    ('Jasmine Cayzer', '1996-09-12', 'jcayzerw@tripadvisor.com'),
+    ('Fred Clayton', '1978-10-06', 'fclaytonx@shutterfly.com'),
+    ('Noreen Phizackarley', null, 'nphizackarleyy@1und1.de'),
+    ('Rabbi Royston', '1955-01-07', 'rroystonz@va.gov'),
+    ('Scott Getcliff', '1977-10-18', 'sgetcliff10@jigsy.com'),
+    ('Bernetta McComish', '1983-11-05', 'bmccomish11@dell.com'),
+    ('Allys Ingliss', '1980-01-22', 'aingliss12@stanford.edu'),
+    ('Clare McKinless', '1980-01-19', 'cmckinless13@merriam-webster.com'),
+    ('Calhoun Montague', null, 'cmontague14@google.com'),
+    ('Alaine Foulks', '1964-12-12', 'afoulks15@seesaa.net'),
+    ('Barnard Glendzer', '1999-05-11', 'bglendzer16@php.net'),
+    ('Ferris Goreway', '1960-10-31', 'fgoreway17@phpbb.com'),
+    ('Vachel McCarly', null, 'vmccarly18@arstechnica.com'),
+    ('Ailina Eadie', '1952-05-04', 'aeadie19@godaddy.com'),
+    ('Timmie Rutter', '1998-11-08', 'trutter1a@nytimes.com'),
+    ('Darrin Gladdish', '1989-01-23', 'dgladdish1b@meetup.com'),
+    ('Elga Worboy', '1955-10-03', 'eworboy1c@macromedia.com'),
+    ('Preston Mellers', '1951-10-18', 'pmellers1d@mail.ru');
+
+
+```
+
+<br>
+<br>
+<br>
+
+3-) Let's do 5 <strong>UPDATE</strong> operations that will update the other columns according to each of the columns.
+
+
+```
+
+// Update the (name) column:
+
+UPDATE employee
+SET name = 'Alfonzo David'
+WHERE name LİKE 'A%'
+RETURNING *;
+
+
+// Update the (birthday) column:
+
+UPDATE employee
+SET birthday = '2000-04-26'
+WHERE name = 'Costa Catto'
+RETURNING *;
+
+
+// Update the (email) column:
+
+UPDATE employee
+SET email = 'beverie@mail.com'
+WHERE id = 11
+RETURNING *;
+
+
+// Update the (name) and (birthday) columns:
+
+UPDATE employee
+SET name = 'Darwin Smith',
+    birthday = '1988-12-12'
+WHERE email = 'snewland2@prweb.com';
+RETURNING *;
+
+
+// Update all columns:
+
+UPDATE employee
+SET name = 'Gumball Watterson',
+    birtday = '1999-01-10',
+    email = 'gamball@wat.com'
+WHERE id = 8
+RETURNING *;
+
+
+```
+
+
+<br>
+<br>
+<br>
+
+
+4-) Let's do 5 <strong>DELETE</strong> operations that will delete the relevant row according to each of the columns.
+
+
+```
+
+DELETE FROM employee
+WHERE name ='Alfonzo David'
+RETURNING *;
+
+DELETE FROM employee
+WHERE id = 36;
+
+DELETE FROM employee
+WHERE 
+name = 'Darwin Smith' 
+AND 
+birthday = '1988-12-12';
+
+DELETE FROM employee
+WHERE email = 'beverie@mail.com';
+
+DELETE FROM employee
+WHERE id > 14
+RETURNING *;
+
+```
+
 
 <br>
 

@@ -18,6 +18,7 @@
  - **SQL Practice 02 | BETWEEN and IN**
  - **SQL Practice 03 | LIKE and ILIKE**
  - **SQL Practice 04 | DISTINCT and COUNT**
+ - **SQL Practice 05 | ORDER BY | LIMIT and OFFSET**
 
 <br>
 
@@ -321,6 +322,70 @@ WHERE city ~~* 'R%'
 <br>
 
 - **To Return - <a href="https://github.com/EnginGultekin/SQL">Click</a>**
+
+<br>
+<br>
+
+
+## SQL Practice 05 | ORDER BY | LIMIT and OFFSET
+
+<br>
+<br>
+
+
+1-) List the 5 longest (length) film in the <strong>film</strong> table and the film name (title) ends with the <strong>'n'</strong> character.
+
+
+```
+
+SELECT title, length
+FROM film
+WHERE title LIKE '%n'
+ORDER BY length DESC
+LIMIT 5
+
+```
+
+
+<br>
+<br>
+<br>
+
+2-) List the shortest (length) second(6,7,8,9,10)  5 film(6,7,8,9,10) in the <strong>film</strong>  table and the film title ends with the 'n' character.
+
+
+```
+
+SELECT title, length
+FROM film
+WHERE title LIKE '%n'
+ORDER BY length ASC
+OFFSET 5
+LIMIT 5
+
+```
+
+
+<br>
+<br>
+<br>
+
+3-) Sort the first 4 data, provided that store_id is 1 in the descending order according to the <strong>last_name</strong> column in the <strong>customer</strong> table.
+
+```
+
+SELECT *
+FROM customer
+WHERE store_id = 1
+ORDER BY last_name DESC
+LIMIT 4
+
+```
+
+
+<br>
+
+- **To Return - <a href="">Click</a>**
 
 <br>
 <br>

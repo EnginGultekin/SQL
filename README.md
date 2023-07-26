@@ -19,6 +19,7 @@
  - **SQL Practice 03 | LIKE and ILIKE**
  - **SQL Practice 04 | DISTINCT and COUNT**
  - **SQL Practice 05 | ORDER BY | LIMIT and OFFSET**
+ - **SQL Practice 06 | Aggregate Functions**
 
 <br>
 
@@ -385,7 +386,83 @@ LIMIT 4
 
 <br>
 
-- **To Return - <a href="">Click</a>**
+- **To Return - <a href="https://github.com/EnginGultekin/SQL">Click</a>**
+
+<br>
+<br>
+
+## SQL Practice 06 | Aggregate Functions 
+
+<br>
+
+
+```
+ MIN, MAX, SUM, AVG, COUNT ...
+```
+
+<br>
+<br>
+
+
+1-) What is the average of the values in the <strong>rental_rate</strong> column in the <strong>film</strong> table?
+
+
+```
+
+SELECT ROUND(AVG(rental_rate),2) hacer
+FROM film
+
+```
+
+
+
+<br>
+<br>
+<br>
+
+2-) How many of the film in the <strong>film</strong> table start with the character <strong>'C'</strong>?
+
+
+```
+
+SELECT COUNT(*)
+FROM film
+WHERE title LIKE 'C%'
+
+```
+
+<br>
+<br>
+<br>
+
+3-) Among the film in the <strong>film</strong> table, how many minutes is the longest (length) film with a <strong>rental_rate</strong> equal to 0.99?
+
+```
+
+SELECT MAX(length) 
+FROM film 
+WHERE rental_rate = 0.99
+
+```
+
+<br>
+<br>
+<br>
+
+4-) How many different <strong>replacement_cost</strong> values are there for the fims longer than 150 minutes in the <strong>film</strong> table?
+
+
+```
+
+SELECT COUNT(DISTINCT replacement_cost) 
+FROM film 
+WHERE length > 150;
+
+```
+
+<br>
+
+- **To Return - <a href="https://github.com/EnginGultekin/SQL">Click</a>**
 
 <br>
 <br>

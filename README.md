@@ -24,6 +24,7 @@
  - **SQL Practice 08 | Creating a Table | Updating Data**
  - **SQL Practice 09 | INNER JOIN**
  - **SQL Practice 10 | LEFT, RIGHT, FULL JOIN**
+ - **SQL Practice 11 | UNION, INTERSECT and EXCEPT**
 
 <br>
 
@@ -835,3 +836,127 @@ FULL JOIN rental ON customer.customer_id = rental.customer_id
 
 <br>
 <br>
+
+
+## SQL Ödev 11 | UNION, INTERSECT and EXCEPT
+
+<br>
+<br>
+
+1-) Sort all data for the first_name columns in the <strong>actor</strong> and <strong>customer</strong> tables.
+
+
+
+```
+
+(
+  SELECT first_name 
+  FROM actor
+)  
+UNION 
+(
+  SELECT first_name
+  FROM customer
+)  
+
+```
+
+
+<br>
+<br>
+<br>
+
+2-) Sort intersecting data for first_name columns in <strong>actor</strong> and <strong>customer</strong> tables.
+
+
+
+```
+
+(
+  SELECT first_name 
+  FROM actor
+)
+INTERSECT
+(
+  SELECT first_name
+  FROM customer
+)
+
+```
+
+
+<br>
+<br>
+<br>
+
+3-) For the first_name columns in the <strong>actor</strong> and <strong>customer</strong> tables, sort the data in the first table but not in the second table.
+
+
+
+```
+
+(
+  SELECT first_name 
+  FROM actor 
+)
+EXCEPT 
+(  
+  SELECT first_name 
+  FROM customer
+)
+
+```
+
+
+<br>
+<br>
+<br>
+
+4-) Do the first 3 queries for duplicate data as well.
+
+
+
+```
+
+(
+  SELECT first_name 
+  FROM actor
+)  
+UNION ALL
+(
+  SELECT first_name
+  FROM customer
+);  
+
+
+(
+  SELECT first_name 
+  FROM actor
+)
+INTERSECT ALL
+(
+  SELECT first_name
+  FROM customer
+);
+
+
+(
+  SELECT first_name 
+  FROM actor 
+)
+EXCEPT ALL
+(  
+  SELECT first_name 
+  FROM customer
+);
+
+```
+
+
+<br>
+
+- **To Return - <a href="https://github.com/EnginGultekin/SQL">Click</a>**
+
+<br>
+<br>
+

@@ -25,6 +25,7 @@
  - **SQL Practice 09 | INNER JOIN**
  - **SQL Practice 10 | LEFT, RIGHT, FULL JOIN**
  - **SQL Practice 11 | UNION, INTERSECT and EXCEPT**
+ - **SQL Practice 12 | Query Scenarios**
 
 <br>
 
@@ -724,7 +725,7 @@ RETURNING *;
 <br>
 
 
-## SQL Ödev 09 | INNER JOIN
+## SQL Practice 09 | INNER JOIN
 
 <br>
 <br>
@@ -782,7 +783,7 @@ INNER JOIN rental ON customer.customer_id = rental.customer_id;
 <br>
 
 
-## SQL Ödev 10 | LEFT JOIN, RIGHT JOIN, FULL JOIN
+## SQL Practice 10 | LEFT JOIN, RIGHT JOIN, FULL JOIN
 
 <br>
 <br>
@@ -838,7 +839,7 @@ FULL JOIN rental ON customer.customer_id = rental.customer_id
 <br>
 
 
-## SQL Ödev 11 | UNION, INTERSECT and EXCEPT
+## SQL Practice 11 | UNION, INTERSECT and EXCEPT
 
 <br>
 <br>
@@ -959,4 +960,107 @@ EXCEPT ALL
 
 <br>
 <br>
+
+
+## SQL Practice 12 | Query Scenarios
+
+<br>
+<br>
+
+1-) In the <strong>film</strong> table, the film length is shown in the <strong>length</strong> column. How many films are longer than the average film length?
+
+
+```
+
+SELECT COUNT(*)
+FROM film
+WHERE length > (
+  SELECT AVG(length)
+  FROM film
+)
+
+```
+
+
+<br>
+<br>
+<br>
+
+2-) How many films have the highest rental_rate in the <strong>film</strong> table?
+
+
+```
+
+SELECT COUNT(*)
+FROM film
+WHERE rental_rate = (
+  SELECT MAX(rental_rate)
+  FROM film
+)
+
+```
+
+
+<br>
+<br>
+<br>
+
+3-) In the <strong>film</strong> table, list the films with the lowest rental_rate and the lowest replacement_cost.
+
+
+```
+
+SELECT * FROM film
+WHERE rental_rate = (
+  SELECT MIN(rental_rate)
+  FROM film
+)
+AND replacement_cost = (
+  SELECT MIN(replacement_cost)
+  FROM film
+)
+
+```
+
+
+<br>
+<br>
+<br>
+
+4-) In the <strong>payment</strong> table, list the (customers) who make the most purchases.
+
+
+```
+
+SELECT customer.first_name, customer.last_name, 
+COUNT(*) AS "Transaction Count"  
+FROM payment
+JOIN customer ON customer.customer_id = payment.customer_id
+GROUP BY payment.customer_id, customer.first_name, customer.last_name
+ORDER BY "Transaction Count" DESC;
+
+
+```
+<br>
+
+- **To Return - <a href="https://github.com/EnginGultekin/SQL">Click</a>**
+
+<br>
+<hr>
+<br>
+
+
+## Installation
+
+First, clone the project.
+
+```
+https://github.com/EnginGultekin/SQL.git
+```
+
+<br>
+<hr>
+
+
+
 

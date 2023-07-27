@@ -22,6 +22,7 @@
  - **SQL Practice 06 | Aggregate Functions**
  - **SQL Practice 07 | GROUP BY | HAVING**
  - **SQL Practice 08 | Creating a Table | Updating Data**
+ - **SQL Practice 09 | INNER JOIN**
 
 <br>
 
@@ -709,6 +710,64 @@ WHERE email = 'beverie@mail.com';
 DELETE FROM employee
 WHERE id > 14
 RETURNING *;
+
+```
+
+
+<br>
+
+- **To Return - <a href="https://github.com/EnginGultekin/SQL">Click</a>**
+
+<br>
+<br>
+
+
+## SQL Ödev 09 | INNER JOIN
+
+<br>
+<br>
+
+1-) Write the <strong>INNER JOIN</strong> query where we can see the (city) and (country) names in the <strong>city</strong> table and the <strong>country</strong> table together.
+
+
+
+```
+
+SELECT city, country
+FROM city
+INNER JOIN country ON city.country_id = country.country_id;
+
+```
+
+
+<br>
+<br>
+<br>
+
+2-) Write the <strong>INNER JOIN</strong> query where we can see the <strong>customer</strong> table and the (payment_id) in the <strong>payment</strong> table and the first_name and last_name names in the customer table together.
+
+
+```
+
+SELECT payment.payment_id, customer.first_name, customer.last_name
+FROM customer
+INNER JOIN payment ON customer.customer_id = payment.customer_id;
+
+```
+
+
+<br>
+<br>
+<br>
+
+3-) Write the <strong>INNER JOIN</strong> query where we can see the <strong>customer</strong> table and the (rental_id) in the <strong>rental</strong> table and the first_name and last_name names in the customer table together.
+
+
+```
+
+SELECT rental.rental_id, customer.first_name, customer.last_name
+FROM customer
+INNER JOIN rental ON customer.customer_id = rental.customer_id;
 
 ```
 
